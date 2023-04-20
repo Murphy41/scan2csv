@@ -1,0 +1,3 @@
+<launch>
+  <node name="scan2csv_node" pkg="scan2csv" type="scan2csv.py" output="screen"/>
+</launch>
