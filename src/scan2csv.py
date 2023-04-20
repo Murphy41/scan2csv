@@ -16,7 +16,10 @@ class Scan2CSV:
         self.create_csv_file()
 
     def create_csv_file(self):
-        output_dir = rospy.get_param('~output_dir', os.getcwd())
+        file_dir = os.path.dirname(os.path.abspath(__file__))
+        package_dir = os.path.abspath(os.path.join(file_dir, '..'))
+        default_dir = os.path.join(package_dir, 'data')
+        output_dir = rospy.get_param('~output_dir', default_dir)
         filename = os.path.join(output_dir, 'scan.csv')
 
         self.csv_file = open(filename, 'w')
